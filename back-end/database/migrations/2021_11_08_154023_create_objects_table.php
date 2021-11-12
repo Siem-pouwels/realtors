@@ -22,12 +22,12 @@ class CreateObjectsTable extends Migration
             $table->integer("housenumber");
             $table->integer("rooms");
             $table->integer("bedrooms");
-            $table->string("building_date");
+            $table->string("building_date")->nullable();
             $table->string("placement");
             $table->string("surface");
             $table->string("type");
-            $table->string("date");
-            $table->string("sold");
+            $table->string("date")->nullable();
+            $table->string("sold")->nullable();
             $table->integer("price");
             $table->timestamps();
         });
