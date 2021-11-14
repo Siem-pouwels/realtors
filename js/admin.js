@@ -9,7 +9,7 @@ function getHouses() {
 			console.log(houses)
             var template = $("#table-houses-template").html();
 			var renderTemplate = Mustache.render(template, houses);
-			$("#admin-table").append(renderTemplate);
+			$("#admin-table tbody").html(renderTemplate);
 		},
 		error: function (response) {
 			errorPopup("Something went wrong");
@@ -24,13 +24,14 @@ function deleteHouse(btnDelete) {
 		url: "http://127.0.0.1:8000/api/houses/delete/"+btnDelete.id,
 
 		success: function (houses) {
-			$(btnDelete).closest("tr").remove();
+			getHouses();
+			succesPopup("Succesfully deleted house "+btnDelete.id);
 		},
 		error: function () {
 			errorPopup("Something went wrong");
 		}
 	});
-	$(btnDelete).closest("tr").remove();
+	
 }
 
 function openEditHouse(btnEdit) {
@@ -89,7 +90,8 @@ function submitHouseChanges() {
 		},
 
 		success: function (message) {
-			succesPopup("Succesfully edited house"+id);
+			succesPopup("Succesfully edited house "+id);
+			getHouses();
 		},
 		error: function () {
 			errorPopup("Something went wrong");
@@ -135,6 +137,7 @@ function createHouseChanges() {
 
 		success: function (message) {
 			succesPopup("Succesfully created a new house");
+			getHouses();
 		},
 		error: function () {
 			errorPopup("Something went wrong");

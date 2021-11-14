@@ -1,4 +1,6 @@
 body {
-    font-family: Verdana;
     background-color: #4cbba8;
+}
+*{
+    font-family: Verdana;
 }

@@ -7,7 +7,7 @@
                                         <div class="card-body">
                                                 {{place}} {{zipcode}}</br>
                                                 €{{price}} k.k.
-                                                <button class="objects-info-btn btn" id="{{id}}" data-bs-toggle="modal" data-bs-target="#more-info-modal">MORE INFO</button>
+                                                <button class="btn-edit btn objects-info-btn btn-primary" id="{{id}}" data-bs-toggle="modal" data-bs-target="#more-info-modal">More info</button>
                                         </div>
                                 </div>
                         {{/.}}

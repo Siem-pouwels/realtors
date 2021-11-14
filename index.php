@@ -9,5 +9,5 @@
     <?php include('inc/index-cards-template.php'); ?>
     <?php include('inc/scripts.php'); ?>
 </body>
-
+    <?php include('inc/footer.php'); ?>
 </html>

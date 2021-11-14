@@ -19,8 +19,10 @@
   <div id="create-house-modal" class="modal fade" role="modal">
     <div class="modal-dialog">
       <div class="modal-content">
-        <h5 class="modal-title">Create</h5>
+    <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Create house</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
         <div class="modal-body">
         <form>
           <label for="id">Street:</label>
@@ -54,7 +56,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button id="create-house" data-bs-dismiss="modal" type="submit">Create</button>
+        <button id="create-house" data-bs-dismiss="modal" class="btn-edit btn btn-primary" type="submit">Create</button>
       </div>
         </form>
       </div>
@@ -63,5 +65,7 @@
 
   <?php include('inc/scripts-admin.php'); ?>
 </body>
+
+<?php include('inc/footer.php'); ?>
 
 </html>
