@@ -1,6 +1,6 @@
 <div class="container">
 	<table class="table" id="admin-table">
-	<button class="btn-edit btn btn-primary" data-bs-toggle="modal" data-bs-target="#create-house-modal">Create</button>
+		<button class="btn-edit btn btn-primary" data-bs-toggle="modal" data-bs-target="#create-house-modal">Create</button>
 		<thead>
 			<tr>
 				<th>#</th>

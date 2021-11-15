@@ -2,11 +2,17 @@
 
 <body>
     <?php include('inc/navbar.php'); ?>
-    <?php include('inc/index-cards.php'); ?>
-    <?php include('inc/index-cards-template.php'); ?>
+    <!-- Modals -->
     <?php include('inc/modals/more-info.php'); ?>
-    <?php include('inc/detail-objects.php'); ?>
-    <?php include('inc/index-cards-template.php'); ?>
+    <!-- /Modals -->
+
+    <?php include('inc/index-cards.php'); ?>
+
+    <!-- Templates -->
+    <?php include('inc/templates/index-cards-template.php'); ?>
+    <?php include('inc/templates/index-cards-template.php'); ?>
+    <?php include('inc/templates/detail-objects.php'); ?>
+    <!-- /Templates -->
     <?php include('inc/scripts.php'); ?>
 </body>
     <?php include('inc/footer.php'); ?>

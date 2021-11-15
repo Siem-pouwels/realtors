@@ -16,7 +16,8 @@ class HousesController extends Controller
         return response()->json($houses);
     }
 
-    function createHouse(Request $req){
+    function createHouse(Request $req)
+    {
         $validator = Validator::make($req->all(), [
             'street' => 'required|min:3',
             'place' => 'required|min:3',
@@ -67,8 +68,9 @@ class HousesController extends Controller
         return response()->json($house);
     }
 
-    function editHouse(Request $req, $id){
-        // $req = json_decode($req);
+    function editHouse(Request $req, $id)
+    {
+        // this checks the values of the object and checks if it 
         $validator = Validator::make($req->all(), [
             'street' => 'required|min:3',
             'place' => 'required|min:3',
@@ -87,22 +89,22 @@ class HousesController extends Controller
         }
 
         Objects::find($id)
-        ->update([
-            'street' => $req->street,
-            'place' => $req->place,
-            'zipcode' => $req->zipcode,
-            'region' => $req->region,
-            'housenumber' => $req->housenumber,
-            'rooms' => $req->rooms,
-            'bedrooms' => $req->bedrooms,
-            'building_date' => $req->building_date,
-            'placement' => $req->placement,
-            'surface' => $req->surface,
-            'type' => $req->type,
-            'date' => $req->date,
-            'sold' => $req->sold,
-            'price' => $req->price,
-        ]);
+            ->update([
+                'street' => $req->street,
+                'place' => $req->place,
+                'zipcode' => $req->zipcode,
+                'region' => $req->region,
+                'housenumber' => $req->housenumber,
+                'rooms' => $req->rooms,
+                'bedrooms' => $req->bedrooms,
+                'building_date' => $req->building_date,
+                'placement' => $req->placement,
+                'surface' => $req->surface,
+                'type' => $req->type,
+                'date' => $req->date,
+                'sold' => $req->sold,
+                'price' => $req->price,
+            ]);
         return response()->json('it worked');
     }
 }

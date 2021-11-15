@@ -1,13 +1,13 @@
 function getHouses() {
-    $.ajax({
+	$.ajax({
 		type: "GET",
 		dataType: "json",
 		url: "http://127.0.0.1:8000/api/houses",
 
 		success: function (houses) {
-            allHouses = houses;
+			allHouses = houses;
 			console.log(houses)
-            var template = $("#table-houses-template").html();
+			var template = $("#table-houses-template").html();
 			var renderTemplate = Mustache.render(template, houses);
 			$("#admin-table tbody").html(renderTemplate);
 		},
@@ -18,31 +18,31 @@ function getHouses() {
 }
 
 function deleteHouse(btnDelete) {
-    $.ajax({
+	$.ajax({
 		type: "POST",
 		dataType: "json",
-		url: "http://127.0.0.1:8000/api/houses/delete/"+btnDelete.id,
+		url: "http://127.0.0.1:8000/api/houses/delete/" + btnDelete.id,
 
 		success: function (houses) {
 			getHouses();
-			succesPopup("Succesfully deleted house "+btnDelete.id);
+			succesPopup("Succesfully deleted house " + btnDelete.id);
 		},
 		error: function () {
 			errorPopup("Something went wrong");
 		}
 	});
-	
+
 }
 
 function openEditHouse(btnEdit) {
 	$.ajax({
 		type: "GET",
 		dataType: "json",
-		url: "http://127.0.0.1:8000/api/houses/"+btnEdit.id,
+		url: "http://127.0.0.1:8000/api/houses/" + btnEdit.id,
 
 		success: function (house) {
 			console.log(house)
-            var template = $("#template-house-modal").html();
+			var template = $("#template-house-modal").html();
 			var renderTemplate = Mustache.render(template, house);
 			$("#edit-modal-content").html(renderTemplate);
 		},
@@ -71,7 +71,7 @@ function submitHouseChanges() {
 	$.ajax({
 		type: "POST",
 		dataType: "json",
-		url: "http://127.0.0.1:8000/api/houses/edit/"+id,
+		url: "http://127.0.0.1:8000/api/houses/edit/" + id,
 		data: {
 			street: street,
 			place: place,
@@ -90,7 +90,7 @@ function submitHouseChanges() {
 		},
 
 		success: function (message) {
-			succesPopup("Succesfully edited house "+id);
+			succesPopup("Succesfully edited house " + id);
 			getHouses();
 		},
 		error: function () {
@@ -145,40 +145,40 @@ function createHouseChanges() {
 	});
 }
 
-function succesPopup(message,timeout){
-	if(timeout == undefined){
-	  timeout = 2.5
+function succesPopup(message, timeout) {
+	if (timeout == undefined) {
+		timeout = 2.5
 	}
 	var a_message = "";
 	a_message += "<div class='alert alert-success alert-dismissible fade show' role='alert'>";
-	a_message +=  "<strong>Succes!</strong> "+message;
+	a_message += "<strong>Succes!</strong> " + message;
 	a_message += "</div>";
 	$('body').prepend(a_message)
-  
-	if(timeout != 0){
-	  setTimeout(function () {
-		$('.alert').alert('close')
-	  }, timeout*1000);
-	}
-  }
 
-function errorPopup(message,timeout){
-	if(timeout == undefined){
-	  timeout = 2.5
+	if (timeout != 0) {
+		setTimeout(function () {
+			$('.alert').alert('close')
+		}, timeout * 1000);
+	}
+}
+
+function errorPopup(message, timeout) {
+	if (timeout == undefined) {
+		timeout = 2.5
 	}
 	var a_message = "";
 	a_message += "<div class='alert alert-danger alert-dismissible fade show' role='alert'>";
-	a_message +=  "<strong>Error!</strong> "+message;
+	a_message += "<strong>Error!</strong> " + message;
 	a_message += "</div>";
 	$('body').prepend(a_message)
-  
-	if(timeout != 0){
-	  setTimeout(function () {
-		$('.alert').alert('close')
-		console.log('close')
-	  }, timeout*1000);
+
+	if (timeout != 0) {
+		setTimeout(function () {
+			$('.alert').alert('close')
+			console.log('close')
+		}, timeout * 1000);
 	}
-  }
+}
 
 
 $(document).ready(function () {
@@ -202,5 +202,5 @@ $(document).ready(function () {
 		event.preventDefault();
 		createHouseChanges(this);
 	});
-	
+
 });
