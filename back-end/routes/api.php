@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+// listens on 
 Route::get('houses', 'App\Http\Controllers\HousesController@get');
 Route::post('houses/create', 'App\Http\Controllers\HousesController@createHouse');
 Route::post('houses/edit/{id}', 'App\Http\Controllers\HousesController@editHouse');
